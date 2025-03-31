@@ -1,1 +1,62 @@
 @import "tailwindcss";
+
+@import url("https://fonts.googleapis.com/css2?family=Rubik:ital,wght@0,300..900;1,300..900&display=swap");
+
+body {
+  font-family: "Rubik", sans-serif;
+  background-image: url(/public/assets/pattern-background-mobile-light.svg);
+  background-repeat: no-repeat;
+  background-position: center top;
+  height: 100vh;
+}
+
+body.dark {
+  background-color: #313e51;
+  background-image: url(/public//assets/pattern-background-mobile-dark.svg);
+  background-repeat: no-repeat;
+}
+
+.switch {
+  position: relative;
+  display: inline-block;
+  width: 32px;
+  height: 20px;
+}
+
+.switch input {
+  opacity: 0;
+  width: 0;
+  height: 0;
+}
+
+.slider {
+  position: absolute;
+  cursor: pointer;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-color: #a729f5;
+  transition: 0.4s;
+  border-radius: 50px;
+}
+
+.slider::before {
+  content: "";
+  position: absolute;
+  height: 12px;
+  width: 12px;
+  border-radius: 50%;
+  left: 4px;
+  bottom: 4px;
+  background-color: white;
+  transition: 0.4s;
+}
+
+input:checked + .slider {
+  background-color: #a729f5;
+}
+
+input:checked + .slider::before {
+  transform: translateX(12px);
+}
