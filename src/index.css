@@ -5,6 +5,12 @@
 
 @theme {
   --color-button: #fff;
+  --color-button-dark: #3b4d66;
+  --color-image: #fff1e9;
+  --color-access-light: #f6e7ff;
+
+  --shadow-button-light: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
+  --shadow-button-dark: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
 }
 
 body {

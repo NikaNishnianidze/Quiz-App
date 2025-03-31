@@ -27,9 +27,13 @@ export default function Header() {
       <div className="main-start px-[24px] py-[16px] ">
         <div className="header flex flex-row justify-between items-center">
           <div className="access flex flex-row items-center gap-[16px]">
-            {!isStartPage && <img src={accessIcon} alt="accessibility icon" />}
             {!isStartPage && (
-              <p className="font-medium text-[18px] text-[#313E51]">
+              <div className="w-[40px] h-[40px] rounded-[4px] p-[5.71px] bg-access-light">
+                <img src={accessIcon} alt="accessibility icon" />
+              </div>
+            )}
+            {!isStartPage && (
+              <p className="font-medium text-[18px] text-[#313E51] dark:text-[#fff]">
                 Accessibility
               </p>
             )}
