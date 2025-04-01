@@ -68,14 +68,14 @@ const Quiz: React.FC<QuizProps> = () => {
 
   return (
     <>
-      <div className="questions flex flex-col items-center px-[24px] mt-[32px] gap-[12px]">
-        <p className="w-[327px] italic text-[#626C7F] text-[14px] font-normal leading-[21px] dark:text-[#ABC1E1]">
+      <div className="questions flex flex-col items-center px-[24px] mt-[32px] gap-[12px] tb:w-[640px] tb:px-[64px] tb:mt-[49px] tb:items-start tb:gap-[27px]">
+        <p className="w-[327px] italic text-[#626C7F] text-[14px] font-normal leading-[21px] dark:text-[#ABC1E1] tb:text-[20px]">
           Question {count + 1} of {quiz?.questions.length}
         </p>
-        <p className="w-[327px] text-[#313E51] text-[20px] font-normal leading-[24px] dark:text-[#fff]">
+        <p className="w-[327px] text-[#313E51] text-[20px] font-normal leading-[24px] dark:text-[#fff] tb:text-[36px] tb:w-[640px] tb:leading-[43px]">
           {quiz?.questions[count].question}
         </p>
-        <div className="progress-container relative w-[319px] flex flex-col items-center mt-[24px]">
+        <div className="progress-container relative w-[319px] flex flex-col items-center mt-[24px] tb:w-[640px] tb:items-start tb:mt-[40px  ]">
           <input
             type="range"
             min={1}
@@ -83,7 +83,7 @@ const Quiz: React.FC<QuizProps> = () => {
             value={count}
             step={1}
             readOnly
-            className="range-input "
+            className="range-input"
           />
           <div
             className="progress-line absolute top-0 left-0 "
@@ -115,19 +115,21 @@ const Quiz: React.FC<QuizProps> = () => {
               } 
                 ${
                   isIncorrect ? "border-2 border-[#FF4C4C]" : ""
-                } dark:bg-range-input`}
+                } dark:bg-range-input tb:w-[640px]`}
             >
-              <div className="left flex flex-row gap-[8px]">
+              <div className="left flex flex-row gap-[8px] tb:gap-[24px]">
                 <div
                   className={`w-[40px] h-[40px] flex flex-col items-center justify-center rounded-[6px] bg-options text-[18px] font-medium text-[#626C7F] ${
                     isCorrect ? "bg-options-correct" : ""
                   } ${isIncorrect ? "bg-options-incorrect" : ""} ${
                     isIncorrect ? "text-[#fff]" : ""
-                  } ${isCorrect ? "text-[#fff]" : ""}`}
+                  } ${
+                    isCorrect ? "text-[#fff]" : ""
+                  } tb:w-[56px] tb:h-[56px] tb:text-[28px]`}
                 >
                   {options[index]}
                 </div>
-                <button className="text-[16px] text-[#313E51] font-medium dark:text-[#fff]">
+                <button className="text-[16px] text-[#313E51] font-medium dark:text-[#fff] tb:text-[24px]">
                   {option}
                 </button>
               </div>
@@ -153,7 +155,7 @@ const Quiz: React.FC<QuizProps> = () => {
         {checkAnswer === null && (
           <button
             onClick={submitAnswer}
-            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium"
+            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium tb:mt-[32px]"
           >
             Submit Answer
           </button>
@@ -161,14 +163,14 @@ const Quiz: React.FC<QuizProps> = () => {
         {checkAnswer !== null && (
           <button
             onClick={nextQuestion}
-            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium"
+            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium tb:mt-[32px]"
           >
             Next Question
           </button>
         )}
 
         {error && (
-          <div className="flex flex-row gap-[8px] mt-[19px] items-center text-[18px] text-[#EE5454] dark:text-[#fff]">
+          <div className="flex flex-row gap-[8px] mt-[19px] items-center text-[18px] text-[#EE5454] dark:text-[#fff] tb:mt-[34px]">
             <img src={WrongIcon} alt="wrongicon" />
             {error}
           </div>

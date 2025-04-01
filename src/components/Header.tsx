@@ -24,16 +24,16 @@ export default function Header() {
   };
   return (
     <>
-      <div className="main-start px-[24px] py-[16px] ">
+      <div className="main-start px-[24px] py-[16px] tb:mt-[40px] tb:px-[64px]">
         <div className="header flex flex-row justify-between items-center">
-          <div className="access flex flex-row items-center gap-[16px]">
+          <div className="access flex flex-row items-center gap-[16px] tb:gap-[24px]">
             {!isStartPage && (
               <div className="w-[40px] h-[40px] rounded-[4px] p-[5.71px] bg-access-light">
                 <img src={accessIcon} alt="accessibility icon" />
               </div>
             )}
             {!isStartPage && (
-              <p className="font-medium text-[18px] text-[#313E51] dark:text-[#fff]">
+              <p className="font-medium text-[18px] text-[#313E51] dark:text-[#fff] tb:text-[28px]">
                 Accessibility
               </p>
             )}

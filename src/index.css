@@ -16,6 +16,10 @@
 
   --shadow-button-light: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
   --shadow-button-dark: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
+
+  --breakpoint-mb: 375px;
+  --breakpoint-tb: 768px;
+  --breakpoint-dk: 1440px;
 }
 
 body {
@@ -107,4 +111,10 @@ body.dark .range-input {
   align-items: center;
   position: absolute;
   background-color: #a729f5;
+}
+
+@media screen and (min-width: 768px) {
+  .range-input {
+    width: 640px;
+  }
 }
