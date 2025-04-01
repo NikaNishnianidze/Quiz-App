@@ -68,8 +68,8 @@ const Quiz: React.FC<QuizProps> = () => {
 
   return (
     <>
-      <div className="questions flex flex-col items-center px-[24px] mt-[32px] gap-[12px] tb:w-[640px] tb:px-[64px] tb:mt-[49px] tb:items-start tb:gap-[27px]">
-        <p className="w-[327px] italic text-[#626C7F] text-[14px] font-normal leading-[21px] dark:text-[#ABC1E1] tb:text-[20px]">
+      <div className="questions flex flex-col items-center px-[24px] mt-[32px] gap-[12px]  tb:px-[64px] tb:mt-[49px] tb:items-center tb:gap-[27px]">
+        <p className="w-[327px] italic text-[#626C7F] text-[14px] font-normal leading-[21px] dark:text-[#ABC1E1] tb:text-[20px] tb:w-[640px]">
           Question {count + 1} of {quiz?.questions.length}
         </p>
         <p className="w-[327px] text-[#313E51] text-[20px] font-normal leading-[24px] dark:text-[#fff] tb:text-[36px] tb:w-[640px] tb:leading-[43px]">
