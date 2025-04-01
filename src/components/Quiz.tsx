@@ -1,4 +1,4 @@
-import { useParams } from "react-router-dom";
+import { useNavigate, useParams } from "react-router-dom";
 import data from "../data.json";
 import { useState } from "react";
 import correctIcon from "../../public/assets/images/icon-correct.svg";
@@ -21,24 +21,33 @@ const Quiz: React.FC<QuizProps> = () => {
   const [checkAnswer, setCheckAnswer] = useState<boolean | null>(null);
   const [selectedOption, setSelectedOption] = useState<string | null>(null);
   const [point, setPoint] = useState<number>(0);
+  const [error, setError] = useState<string>("");
+  const navigate = useNavigate();
 
   const options: string[] = ["A", "B", "C", "D"];
 
   const handleOptionClick = (option: string) => {
     setSelectedOption(option);
     setCheckAnswer(null);
+    setError("");
   };
 
   const submitAnswer = () => {
     const correctAnswer = quiz?.questions[count].answer;
 
-    if (selectedOption) {
-      if (selectedOption === correctAnswer) {
-        setCheckAnswer(true);
-        setPoint(point + 1);
-      } else {
-        setCheckAnswer(false);
-      }
+    if (!selectedOption) {
+      setError("Please select an answer");
+      setCheckAnswer(null);
+      return;
+    }
+
+    if (selectedOption === correctAnswer) {
+      setCheckAnswer(true);
+      setPoint(point + 1);
+      setError("");
+    } else {
+      setCheckAnswer(false);
+      setError("");
     }
   };
 
@@ -47,8 +56,9 @@ const Quiz: React.FC<QuizProps> = () => {
       setCount(count + 1);
       setSelectedOption(null);
       setCheckAnswer(null);
+      setError("");
     } else {
-      console.log("finished");
+      navigate("/result");
     }
   };
 
@@ -89,7 +99,6 @@ const Quiz: React.FC<QuizProps> = () => {
 
       <div className="options-container mt-[40px] flex flex-col items-center gap-[12px]">
         {quiz?.questions[count].options.map((option, index) => {
-          const isSelected = selectedOption === option;
           const isCorrect =
             checkAnswer && option === quiz?.questions[count].answer;
           const isIncorrect =
@@ -140,7 +149,7 @@ const Quiz: React.FC<QuizProps> = () => {
         {checkAnswer === null && (
           <button
             onClick={submitAnswer}
-            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] mb-[139px] shadow-button-light text-[18px] text-[#fff] font-medium"
+            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium"
           >
             Submit Answer
           </button>
@@ -148,10 +157,17 @@ const Quiz: React.FC<QuizProps> = () => {
         {checkAnswer !== null && (
           <button
             onClick={nextQuestion}
-            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] mb-[139px] shadow-button-light text-[18px] text-[#fff] font-medium"
+            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium"
           >
             Next Question
           </button>
+        )}
+
+        {error && (
+          <div className="flex flex-row gap-[8px] mt-[19px] items-center text-[18px] text-[#EE5454]">
+            <img src={WrongIcon} alt="wrongicon" />
+            {error}
+          </div>
         )}
       </div>
     </>

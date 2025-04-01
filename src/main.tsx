@@ -7,6 +7,7 @@ import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import Layout from "./pages/Layout.tsx";
 import Quiz from "./components/Quiz.tsx";
 import Start from "./components/Start.tsx";
+import Result from "./components/Result.tsx";
 
 const router = createBrowserRouter([
   {
@@ -20,6 +21,10 @@ const router = createBrowserRouter([
       {
         path: "/:pathName",
         element: <Quiz title={""} icon={""} questions={[]} />,
+      },
+      {
+        path: "/result",
+        element: <Result />,
       },
     ],
   },
