@@ -114,6 +114,16 @@ body.dark .range-input {
 }
 
 @media screen and (min-width: 768px) {
+  body {
+    background-image: url(/public/assets/images/pattern-background-tablet-light.svg);
+    background-position: 0 0;
+  }
+
+  body.dark {
+    background-image: url(/public/assets/images/pattern-background-tablet-dark.svg);
+    background-position: 0 0;
+  }
+
   .range-input {
     width: 640px;
   }
