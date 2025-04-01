@@ -20,11 +20,11 @@ const router = createBrowserRouter([
       },
       {
         path: "/:pathName",
-        element: <Quiz title={""} icon={""} questions={[]} />,
+        element: <Quiz title={""} icon={""} questions={[]} darkMode={false} />,
       },
       {
         path: "/result",
-        element: <Result />,
+        element: <Result darkMode={false} />,
       },
     ],
   },

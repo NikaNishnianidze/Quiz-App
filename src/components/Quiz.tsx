@@ -12,6 +12,7 @@ interface QuizProps {
     options: string[];
     answer: string;
   }[];
+  darkMode: boolean;
 }
 
 const Quiz: React.FC<QuizProps> = () => {
@@ -50,6 +51,7 @@ const Quiz: React.FC<QuizProps> = () => {
       setError("");
     }
   };
+  console.log(point);
 
   const nextQuestion = () => {
     if (count < (quiz?.questions.length ?? 1) - 1) {
@@ -58,7 +60,7 @@ const Quiz: React.FC<QuizProps> = () => {
       setCheckAnswer(null);
       setError("");
     } else {
-      navigate("/result");
+      navigate("/result", { state: { point } });
     }
   };
 
