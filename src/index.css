@@ -8,6 +8,11 @@
   --color-button-dark: #3b4d66;
   --color-image: #fff1e9;
   --color-access-light: #f6e7ff;
+  --color-range-input: #3b4d66;
+  --color-options: #f4f6fa;
+  --color-submit: #a729f5;
+  --color-options-incorrect: #ee5454;
+  --color-options-correct: #26d782;
 
   --shadow-button-light: 0px 16px 40px 0px rgba(143, 160, 193, 0.14);
   --shadow-button-dark: 0px 16px 40px 0px rgba(49, 62, 81, 0.14);
@@ -15,7 +20,7 @@
 
 body {
   font-family: "Rubik", sans-serif;
-  background-image: url(/public/assets/pattern-background-mobile-light.svg);
+  background-image: url(/public/assets/images/pattern-background-mobile-light.svg);
   background-repeat: no-repeat;
   background-position: center top;
   height: 100vh;
@@ -24,7 +29,7 @@ body {
 
 body.dark {
   background-color: #313e51;
-  background-image: url(/public//assets/pattern-background-mobile-dark.svg);
+  background-image: url(/public//assets/images/pattern-background-mobile-dark.svg);
   background-repeat: no-repeat;
 }
 
@@ -71,4 +76,35 @@ input:checked + .slider {
 
 input:checked + .slider::before {
   transform: translateX(12px);
+}
+
+.range-input {
+  -webkit-appearance: none;
+  width: 319px;
+  height: 8px;
+  background: #e0e0e0;
+  border-radius: 999px;
+  position: relative;
+  overflow: hidden;
+}
+
+body.dark .range-input {
+  background: #3b4d66;
+}
+
+.range-input::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 0px;
+  height: 0px;
+  border-radius: 50%;
+  background: #a729f5;
+  border: 4px solid #a729f5;
+}
+
+.progress-line::before {
+  content: "";
+  display: flex;
+  align-items: center;
+  position: absolute;
+  background-color: #a729f5;
 }
