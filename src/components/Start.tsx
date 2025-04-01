@@ -5,7 +5,7 @@ interface StartProps {
   darkMode: boolean;
 }
 
-const Start: React.FC<StartProps> = ({ darkMode }) => {
+const Start: React.FC<StartProps> = () => {
   return (
     <>
       <div className="main px-[24px] flex flex-col items-center">
