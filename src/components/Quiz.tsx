@@ -67,15 +67,15 @@ const Quiz: React.FC<QuizProps> = () => {
   const progress = (count / (quiz?.questions.length ?? 1)) * 100;
 
   return (
-    <>
-      <div className="questions flex flex-col items-center px-[24px] mt-[32px] gap-[12px]  tb:px-[64px] tb:mt-[49px] tb:items-center tb:gap-[27px]">
-        <p className="w-[327px] italic text-[#626C7F] text-[14px] font-normal leading-[21px] dark:text-[#ABC1E1] tb:text-[20px] tb:w-[640px]">
+    <div className="main-container mb:flex mb:flex-col tb:flex tb:flex-col dk:flex dk:flex-row dk:px-[140px] dk:gap-[131px]">
+      <div className="questions flex flex-col items-center px-[24px] mt-[32px] gap-[12px]  tb:px-[64px] tb:mt-[49px] tb:items-center tb:gap-[27px] dk:mt-[85px] dk:items-start dk:w-[465px] dk:px-0">
+        <p className="w-[327px] italic text-[#626C7F] text-[14px] font-normal leading-[21px] dark:text-[#ABC1E1] tb:text-[20px] tb:w-[640px] tb:w-[465px] dk:text-[28px]">
           Question {count + 1} of {quiz?.questions.length}
         </p>
-        <p className="w-[327px] text-[#313E51] text-[20px] font-normal leading-[24px] dark:text-[#fff] tb:text-[36px] tb:w-[640px] tb:leading-[43px]">
+        <p className="w-[327px] text-[#313E51] text-[20px] font-normal leading-[24px] dark:text-[#fff] tb:text-[36px] tb:w-[640px] tb:leading-[43px] dk:w-[465px]">
           {quiz?.questions[count].question}
         </p>
-        <div className="progress-container relative w-[319px] flex flex-col items-center mt-[24px] tb:w-[640px] tb:items-start tb:mt-[40px  ]">
+        <div className="progress-container relative w-[319px] flex flex-col items-center mt-[24px] tb:w-[640px] tb:items-start tb:mt-[40px] dk:mt-[164px]">
           <input
             type="range"
             min={1}
@@ -99,7 +99,7 @@ const Quiz: React.FC<QuizProps> = () => {
         </div>
       </div>
 
-      <div className="options-container mt-[40px] flex flex-col items-center gap-[12px]">
+      <div className="options-container mt-[40px] flex flex-col items-center gap-[12px] dk:mt-[85px]">
         {quiz?.questions[count].options.map((option, index) => {
           const isCorrect =
             checkAnswer && option === quiz?.questions[count].answer;
@@ -113,23 +113,27 @@ const Quiz: React.FC<QuizProps> = () => {
               className={`option bg-button p-[12px] rounded-[12px] w-[327px] cursor-pointer p-[12px] flex  items-center justify-between shadow-button-light  ${
                 isCorrect ? "border-2 border-[#26D782]" : ""
               } 
-                ${
-                  isIncorrect ? "border-2 border-[#FF4C4C]" : ""
-                } dark:bg-range-input tb:w-[640px]`}
+                ${isIncorrect ? "border-2 border-[#FF4C4C]" : ""} ${
+                selectedOption === option ? "border-3 border-[#A729F5]" : ""
+              } dark:bg-range-input dark:shadow-button-dark tb:w-[640px] dk:w-[564px] dk:px-[20px] dk:py-[18px]`}
             >
-              <div className="left flex flex-row gap-[8px] tb:gap-[24px]">
+              <div className="left flex flex-row gap-[8px] tb:gap-[24px] dk:gap-[32px] items-center">
                 <div
                   className={`w-[40px] h-[40px] flex flex-col items-center justify-center rounded-[6px] bg-options text-[18px] font-medium text-[#626C7F] ${
                     isCorrect ? "bg-options-correct" : ""
                   } ${isIncorrect ? "bg-options-incorrect" : ""} ${
                     isIncorrect ? "text-[#fff]" : ""
+                  } ${isCorrect ? "text-[#fff]" : ""} ${
+                    selectedOption === option ? "bg-submit" : ""
                   } ${
-                    isCorrect ? "text-[#fff]" : ""
-                  } tb:w-[56px] tb:h-[56px] tb:text-[28px]`}
+                    selectedOption === option
+                      ? "text-[#fff] hover:text-[#fff]"
+                      : ""
+                  } tb:w-[56px] tb:h-[56px] tb:text-[28px] hover:text-[#A729F5]`}
                 >
                   {options[index]}
                 </div>
-                <button className="text-[16px] text-[#313E51] font-medium dark:text-[#fff] tb:text-[24px]">
+                <button className="text-[16px] text-[#313E51] font-medium dark:text-[#fff] tb:text-[24px] dk:text-[28px]">
                   {option}
                 </button>
               </div>
@@ -155,7 +159,7 @@ const Quiz: React.FC<QuizProps> = () => {
         {checkAnswer === null && (
           <button
             onClick={submitAnswer}
-            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium tb:mt-[32px]"
+            className="mt-[12px] w-[327px] bg-submit cursor-pointer py-[12px] dark:shadow-button-light rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium tb:mt-[32px] tb:w-[640px] dk:w-[564px] dk:text-[28px] dk:py-[32px] dk:rounded-[24px] hover:bg-hover"
           >
             Submit Answer
           </button>
@@ -163,20 +167,20 @@ const Quiz: React.FC<QuizProps> = () => {
         {checkAnswer !== null && (
           <button
             onClick={nextQuestion}
-            className="mt-[12px] w-[327px] bg-submit py-[12px] rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium tb:mt-[32px]"
+            className="mt-[12px] w-[327px] bg-submit cursor-pointer py-[12px] dark:shadow-button-light rounded-[12px] shadow-button-light text-[18px] text-[#fff] font-medium tb:mt-[32px] tb:w-[640px] dk:w-[564px] dk:text-[28px] dk:py-[32px] dk:rounded-[24px]"
           >
             Next Question
           </button>
         )}
 
         {error && (
-          <div className="flex flex-row gap-[8px] mt-[19px] items-center text-[18px] text-[#EE5454] dark:text-[#fff] tb:mt-[34px]">
+          <div className="flex flex-row gap-[8px]   mt-[19px] items-center text-[18px] text-[#EE5454] dark:text-[#fff] tb:mt-[34px]">
             <img src={WrongIcon} alt="wrongicon" />
             {error}
           </div>
         )}
       </div>
-    </>
+    </div>
   );
 };
 

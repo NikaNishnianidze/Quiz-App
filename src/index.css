@@ -128,3 +128,19 @@ body.dark .range-input {
     width: 640px;
   }
 }
+
+@media screen and (min-width: 1440px) {
+  body {
+    background-image: url(/public/assets/images/pattern-background-desktop-light.svg);
+    background-position: 0 0;
+  }
+
+  body.dark {
+    background-image: url(/public/assets/images/pattern-background-desktop-dark.svg);
+    background-position: 0 0;
+  }
+
+  .range-input {
+    width: 465px;
+  }
+}

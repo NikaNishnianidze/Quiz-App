@@ -23,7 +23,7 @@ export default function Header() {
   };
   return (
     <>
-      <div className="main-start px-[24px] py-[16px] tb:mt-[40px] tb:px-[64px]">
+      <div className="main-start px-[24px] py-[16px] tb:mt-[40px] tb:px-[64px] dk:px-[140px] dk:mt-[83px]">
         <div className="header flex flex-row justify-between items-center">
           <div className="access flex flex-row items-center gap-[16px] tb:gap-[24px]">
             {!isStartPage && (
