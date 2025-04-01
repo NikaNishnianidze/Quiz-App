@@ -8,10 +8,10 @@ interface StartProps {
 const Start: React.FC<StartProps> = ({ darkMode }) => {
   return (
     <>
-      <div className="main px-[24px] ">
-        <div className="mt-[32px] flex flex-col items-start w-full">
+      <div className="main px-[24px] flex flex-col items-center">
+        <div className="mt-[32px] w-[327px] flex flex-col items-start ">
           <h1
-            className={`font-light text-[40px] text-[#313E51] dark:text-[#fff] `}
+            className={`font-light text-[40px] w-[327px] text-[#313E51] dark:text-[#fff] `}
           >
             Welcome to the
           </h1>

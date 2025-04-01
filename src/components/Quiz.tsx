@@ -113,7 +113,9 @@ const Quiz: React.FC<QuizProps> = () => {
               className={`option bg-button p-[12px] rounded-[12px] w-[327px] cursor-pointer p-[12px] flex  items-center justify-between shadow-button-light  ${
                 isCorrect ? "border-2 border-[#26D782]" : ""
               } 
-                ${isIncorrect ? "border-2 border-[#FF4C4C]" : ""}`}
+                ${
+                  isIncorrect ? "border-2 border-[#FF4C4C]" : ""
+                } dark:bg-range-input`}
             >
               <div className="left flex flex-row gap-[8px]">
                 <div
@@ -125,7 +127,7 @@ const Quiz: React.FC<QuizProps> = () => {
                 >
                   {options[index]}
                 </div>
-                <button className="text-[16px] text-[#313E51] font-medium">
+                <button className="text-[16px] text-[#313E51] font-medium dark:text-[#fff]">
                   {option}
                 </button>
               </div>
@@ -166,7 +168,7 @@ const Quiz: React.FC<QuizProps> = () => {
         )}
 
         {error && (
-          <div className="flex flex-row gap-[8px] mt-[19px] items-center text-[18px] text-[#EE5454]">
+          <div className="flex flex-row gap-[8px] mt-[19px] items-center text-[18px] text-[#EE5454] dark:text-[#fff]">
             <img src={WrongIcon} alt="wrongicon" />
             {error}
           </div>
