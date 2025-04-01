@@ -5,7 +5,6 @@ import moonIconLight from "../../public/assets/images/icon-moon-light.svg";
 import accessIcon from "../../public/assets/images/icon-accessibility.svg";
 import { useState } from "react";
 import { useLocation } from "react-router-dom";
-import Start from "./Start";
 
 export default function Header() {
   const [darkMode, setDarkMode] = useState<boolean>(false);
